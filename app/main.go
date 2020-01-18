@@ -1,16 +1,21 @@
 package main
 
 import (
-	"net/http"
+	"app/handler"
 
 	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
 )
 
 func main() {
 	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello World !!")
-	})
-	// e.Startはdocker-compooseで設定したport番号を設定すること
-	e.Logger.Fatal(e.Start(":8082"))
+
+	// ミドルウェアのログ、リカバーを全てに挟む
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
+
+	// ルーティング
+	e.GET("/hello", handler.MyPage())
+
+	e.Start(":8082")
 }
