@@ -1,13 +1,19 @@
-import Vue from 'vue';
-import App from './App'
-import router from '@/router/router.js';
-import vuetify from './plugins/vuetify';
+import 'vuetify/dist/vuetify.min.css'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
-Vue.use(Vuetify);
+import Vue from 'vue'
+import App from './App.vue'
+import Vuetify from 'vuetify'
+// import Router from 'vue-router'
+
+const vuetifyOptions = {}
+
+Vue.config.productionTip = false
+Vue.use(Vuetify)
+// Vue.user(Router)
 
 new Vue({
-    el: '#app',
-    router,
-    vuetify,
-    render: h => h(App)
-})
+    render: h => h(App),
+    vuetify: new Vuetify(vuetifyOptions)
+
+}).$mount('#app')

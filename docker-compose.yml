@@ -10,7 +10,7 @@ services:
       - .:/app
     working_dir: /app
     tty: true
-    command: sh -c "cd assets && yarn install && yarn serve"
+    ## command: sh -c "cd assets && yarn install && yarn serve"
 
   go:
     build:
