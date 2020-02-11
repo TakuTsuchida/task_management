@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "connectionTimeout": 90,
+            "database": "docker_db",
+            "dialect": "MySQL",
+            "name": "localhost",
+            "password": "docker_user_pwd",
+            "port": 3306,
+            "server": "localhost",
+            "username": "docker_user"
+        }
+    ]
+}

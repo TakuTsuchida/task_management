@@ -7,7 +7,7 @@ import (
 	"github.com/labstack/echo/middleware"
 )
 
-func main() {
+func newRouter() *echo.Echo {
 	e := echo.New()
 
 	// ミドルウェアのログ、リカバーを全てに挟む
@@ -17,5 +17,5 @@ func main() {
 	// ルーティング
 	e.GET("/hello", handler.MyPage())
 
-	e.Start(":8082")
+	return e
 }
