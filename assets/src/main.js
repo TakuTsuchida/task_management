@@ -1,5 +1,6 @@
 import 'vuetify/dist/vuetify.min.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import '@mdi/font/css/materialdesignicons.css'
 
 import Vue from 'vue'
 import App from './App.vue'
@@ -9,8 +10,9 @@ import Vuetify from 'vuetify'
 const vuetifyOptions = {}
 
 Vue.config.productionTip = false
-Vue.use(Vuetify)
-// Vue.user(Router)
+Vue.use(Vuetify, {
+    iconfont: 'md'
+}) // Vue.user(Router)
 
 new Vue({
     render: h => h(App),
