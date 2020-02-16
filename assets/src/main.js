@@ -5,16 +5,17 @@ import '@mdi/font/css/materialdesignicons.css'
 import Vue from 'vue'
 import App from './App.vue'
 import Vuetify from 'vuetify'
-// import Router from 'vue-router'
+import router from './router'
+import VueSession from 'vue-session'
 
 const vuetifyOptions = {}
-
 Vue.config.productionTip = false
-Vue.use(Vuetify, {
-    iconfont: 'md'
-}) // Vue.user(Router)
+
+Vue.use(Vuetify)
+Vue.use(VueSession)
 
 new Vue({
+    router,
     render: h => h(App),
     vuetify: new Vuetify(vuetifyOptions)
 

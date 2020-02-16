@@ -15,7 +15,8 @@ func newRouter() *echo.Echo {
 	e.Use(middleware.Recover())
 
 	// ルーティング
-	e.GET("/hello", handler.MyPage())
+	e.GET("/", handler.MyPage())
+	e.POST("/auth", handler.Signup)
 
 	return e
 }

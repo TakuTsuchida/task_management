@@ -4,3 +4,10 @@
         <v-toolbar-title>Application</v-toolbar-title>
     </v-app-bar>
 </template>
+<script>
+export default {
+    data: () => ({
+        drawer: null,
+    })
+}
+</script>

@@ -41,7 +41,13 @@ func Signup(c echo.Context) error {
 			Message: "name already exists",
 		}
 	}
-	model.CreateUser(user)
+	success := model.CreateUser(user)
+	if !success {
+		return &echo.HTTPError{
+			Code:    http.StatusNotAcceptable,
+			Message: "not acceptable data",
+		}
+	}
 	user.Password = ""
 
 	return c.JSON(http.StatusCreated, user)
