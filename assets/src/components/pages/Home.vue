@@ -12,30 +12,30 @@
 import Sidebar from '@/components/share/Sidebar.vue'
 import Header from '@/components/share/Header.vue'
 import Footer from '@/components/share/Footer.vue'
-import axios from 'axios';
+//import UserProfile from '@/components/users/UserProfile.vue'
+import router from '../../router';
 export default {
     name: 'Home',
     components: {
         Sidebar,
         Header,
-        Footer
+        Footer,
     },
     data: () => ({
         credentials: {},
         valid: true,
         loading: false
     }),
-    method: {
-        login() {
-
-        }
-    },
-    // createdの中でaxiosを使います。get()の中のURLは、nginx.confで設定してるので、 /api/ になっています。
     created() {
-        axios.get('http://localhost/api/')
-            .then(response => {
-                console.log(response)
-            })
+        this.checkLoggedIn();
+    },
+    methods: {
+        checkLoggedIn() {
+            this.$session.start();
+            if (!this.$session.has("token")) {
+                router.push("/login");
+            }
+        }
     }
 }
 </script>

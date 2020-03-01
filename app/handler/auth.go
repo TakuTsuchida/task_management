@@ -3,6 +3,7 @@ package handler
 import (
 	"app/model"
 	"net/http"
+	"time"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/labstack/echo"
@@ -51,4 +52,43 @@ func Signup(c echo.Context) error {
 	user.Password = ""
 
 	return c.JSON(http.StatusCreated, user)
+}
+
+func Login(c echo.Context) error {
+	user := new(model.User)
+	if err := c.Bind(user); err != nil {
+		return err
+	}
+
+	user_model := model.FindUser(&model.User{Name: user.Name})
+	if user_model.ID == 0 || user_model.Password != user.Password {
+		return &echo.HTTPError{
+			Code:    http.StatusUnauthorized,
+			Message: "invalid name or password",
+		}
+	}
+	claims := &jwtCustomClaims{
+		user_model.ID,
+		user_model.Name,
+		jwt.StandardClaims{
+			ExpiresAt: time.Now().Add(time.Hour * 72).Unix(),
+		},
+	}
+
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+	t, err := token.SignedString(signingKey)
+	if err != nil {
+		return err
+	}
+
+	return c.JSON(http.StatusOK, map[string]string{
+		"token": t,
+	})
+}
+
+func UserFromToken(c echo.Context) int {
+	user := c.Get("user")
+	claims := user.(*jwt.Token).Claims.(*jwtCustomClaims)
+	uid := claims.UID
+	return uid
 }
