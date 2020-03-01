@@ -24,11 +24,12 @@ export default {
     methods: {
         getUserName() {
             this.$session.start();
-            const headers = {'Authorization': `Bearer ${this.$session.get("token")}`}
-            axios.get('http://localhost/api/auth/header', {headers}
-            )
-                .then(res => (this.username = res["data"]["username"])   
-                )
+            if (this.$session.has("token")) {
+              const headers = {'Authorization': `Bearer ${this.$session.get("token")}`}
+              axios.get('http://localhost/api/auth/header', {headers}
+              )
+                  .then(res => (this.username = res["data"]["username"])
+                  )}
         },
     }
 }
