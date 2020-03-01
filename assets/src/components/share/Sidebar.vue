@@ -11,7 +11,15 @@
             </v-list-item>
             <v-list-item link>
                 <v-list-item-action>
-                    <v-icon>mdi-settings</v-icon>
+                    <v-icon>supervisor_account</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                    <v-list-item-title>Your Account</v-list-item-title>
+                </v-list-item-content>
+            </v-list-item>
+            <v-list-item link>
+                <v-list-item-action>
+                    <v-icon>exit_to_app</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                     <v-list-item-title>Settings</v-list-item-title>
