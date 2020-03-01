@@ -21,17 +21,24 @@
                 <v-list-item-action>
                     <v-icon>exit_to_app</v-icon>
                 </v-list-item-action>
-                <v-list-item-content>
-                    <v-list-item-title>Settings</v-list-item-title>
+                <v-list-item-content @click="logout">
+                    <v-list-item-title>Logout</v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
         </v-list>
     </v-navigation-drawer>
 </template>
 <script>
+import router from '../../router';
 export default {
     data: () => ({
         drawer: null,
-    })
+    }),
+    methods: {
+      logout(){
+        this.$session.start();
+        this.$session.remove("token");
+        router.push('/login');
+      }}
 }
 </script>
