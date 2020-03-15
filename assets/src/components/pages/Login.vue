@@ -18,9 +18,16 @@
                             <v-text-field v-model="credentials.password" :counter="70" label="PASSWORD" maxlength="70" required />
                         </v-col>
                     </v-row>
-                    <v-row justify="center">
-                        <v-btn class="green white--text" :disabled="!valid" @click="login">LOGIN</v-btn>
-                    </v-row>
+                    <div class="my-2">
+                       <v-row justify="center">
+                            <v-btn class="green white--text" :disabled="!valid" @click="login">LOGIN</v-btn>
+                       </v-row>
+                    </div>
+                    <div class="my-2">
+                       <v-row justify="center">
+                            <v-btn class="orange white--text" :disabled="!valid" @click="signup">SIGNUP</v-btn>
+                       </v-row>
+                    </div>
                 </v-form>
             </v-col>
         </v-row>
@@ -38,16 +45,17 @@ export default {
     }),
     methods: {
         login() {
-            console.log(this.credentials);
             axios.post('http://localhost/api/login', this.credentials)
-                .then(res => { // responseの略
+                .then(res => {
                     if (res.status == 200 && 'token' in res.data) {
-                        console.log(res.data);
                         this.$session.start();
                         this.$session.set('token', res.data.token);
                         router.push('/');
                     }
                 })
+        },
+        signup() {
+            router.push('/signup');
         }
     }
 }

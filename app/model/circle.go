@@ -13,6 +13,8 @@ type Circle struct {
 	DeletedAt time.Time
 }
 
+type Circles []Circle
+
 func CreateCircle(circle *Circle) bool {
 	err := db.Create(circle).Error
 	if err != nil {
@@ -25,4 +27,10 @@ func FindCircle(c *Circle) Circle {
 	var circle Circle
 	db.Where(c).First(&circle)
 	return circle
+}
+
+func AllCircles() Circles {
+	var circles Circles
+	db.Find(&circles)
+	return circles
 }

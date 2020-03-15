@@ -5,7 +5,7 @@
         <v-spacer></v-spacer>
         <v-tooltip bottom>
             <template v-slot:activator="{ on }">
-                <v-icon v-on="on">mdi-heart</v-icon>
+                <v-icon v-on="on">account_circle</v-icon>
             </template>
             <span>{{ this.username }}</span>
         </v-tooltip>
