@@ -15,7 +15,7 @@
                     </v-row>
                     <v-row justify="center">
                         <v-col cols="6" md="2">
-                            <v-text-field v-model="credentials.password" :counter="70" label="PASSWORD" maxlength="70" required />
+                            <v-text-field v-model="credentials.password" counter="70" label="PASSWORD" maxlength="70" required />
                         </v-col>
                     </v-row>
                     <div class="my-2">
