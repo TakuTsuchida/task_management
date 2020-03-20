@@ -10,6 +10,7 @@ var db *gorm.DB
 func init() {
 	db = dbConnect()
 	db.AutoMigrate(&User{})
+	db.AutoMigrate(&Circle{})
 }
 
 func dbConnect() *gorm.DB {

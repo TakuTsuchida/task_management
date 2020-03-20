@@ -7,7 +7,8 @@ type User struct {
 }
 
 func CreateUser(user *User) bool {
-	if err := db.Create(user).Error; err != nil {
+	err := db.Create(user).Error
+	if err != nil {
 		return false
 	}
 	return true

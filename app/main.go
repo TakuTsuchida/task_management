@@ -2,7 +2,6 @@ package main
 
 import (
 	"app/handler"
-	"log"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
@@ -19,12 +18,22 @@ func newRouter() *echo.Echo {
 	e.POST("/signup", handler.Signup)
 	e.POST("/login", handler.Login)
 
-	log.Print("before Auth")
-	api := e.Group("/auth")
-	api.Use(middleware.JWTWithConfig(handler.Config))
-	log.Print("after Auth")
-	api.GET("/header", handler.Header())
-	// api.GET("/header", handler.Header)
+	authRouter(e)
+	circleRouter(e)
 
 	return e
+}
+
+func authRouter(e *echo.Echo) {
+	auth := e.Group("/auth")
+	auth.Use(middleware.JWTWithConfig(handler.Config))
+	auth.GET("/header", handler.Header())
+}
+
+func circleRouter(e *echo.Echo) {
+	circle := e.Group("/circle")
+	circle.GET("/select", handler.SelectCircleByUser)
+	// circle.POST("/save/:circle_id", handler.SaveCircle)
+	// circle.PUT("/update/:circle_id", handler.UpdateCircle)
+	// circle.DELETE("delete/:circle_id", handler.DeleteCircle)
 }
