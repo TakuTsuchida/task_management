@@ -1,10 +1,22 @@
 <template>
     <v-app>
+      <v-container fluid>
+      <v-row class="mb-6">
+        <v-col>
         <Header />
-        <Sidebar />
-        <v-container grid-list-md>
-            <img src="@/images/image_home.jpg" />
-        </v-container>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <Sidebar />
+        </v-col>
+        <v-col>
+          <v-container fluid>
+              <img src="@/images/image_home.jpg" />
+          </v-container>
+        </v-col>
+      </v-row>
+      </v-container>
         <Footer />
     </v-app>
 </template>
