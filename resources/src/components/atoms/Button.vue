@@ -1,7 +1,5 @@
 <template>
-  <v-btn
-    color="color" small="isSmall" large="isLarge",
-    disabeld="isDisabled" @click="clickFunc">
+  <v-btn :color="color" :small="isSmall" :large="isLarge" :disabeld="isDisabled" @click="clickFunc">
     {{ label }}
   </v-btn>
 </template>
@@ -9,6 +7,9 @@
 export default {
   name: 'Button',
   props: {
+    color: {
+      type: String,
+    },
     label: {
       type: String,
     },
@@ -26,7 +27,7 @@ export default {
     },
     clickFunc: {
       type: Function,
-      required: true,
+      required: false,
     },
   },
 }
