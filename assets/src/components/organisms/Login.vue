@@ -1,8 +1,10 @@
 <template>
-  <v-container fluid>
-    <MoleculesLoginUserTextArea/>
-    <MoleculesLoginPasswordTextArea/>
-  </v-container>
+  <v-card class="mx-auto" max-width=344>
+    <v-card-actions>
+      <MoleculesLoginUserTextArea/>
+      <MoleculesLoginPasswordTextArea/>
+    </v-card-actions>
+  </v-card>
 </template>
 <script>
 import MoleculesLoginUserTextArea from '@/components/molecules/login/UserTextArea.vue'

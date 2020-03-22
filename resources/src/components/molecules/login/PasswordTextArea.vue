@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-col cols="6" md="2">
+    <v-col cols="8" md="8">
       <v-text-field v-model="value" 
         :label="label" :maxlength="maxLength" :required="isRequired" />
     </v-col>

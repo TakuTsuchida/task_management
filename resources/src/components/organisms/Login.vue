@@ -1,9 +1,13 @@
 <template>
-  <v-container fluid>
+  <v-card class="mx-auto" max-width="400">
+    <v-img
+      src="https://home.ikebukuro.kokosil.net/wp-content/uploads/2019/11/image13052x175_sub3.png"
+      height="300px">
+    </v-img>
     <MoleculesLoginUserTextArea @organisumValue="userIdData"/>
     <MoleculesLoginPasswordTextArea @organisumValue="passwordData"/>
     <MoleculesLoginButton :clickFunc="login"/>
-  </v-container>
+  </v-card>
 </template>
 <script>
 import router from '@/router';

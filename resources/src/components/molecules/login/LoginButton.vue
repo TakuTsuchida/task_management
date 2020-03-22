@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-      <v-col class="text-center" cols="6" md="2">
+      <v-col class="text-center" cols="8" md="6">
           <Button
             :label="label" :color="color"
             :isSmall="isSmall" :isLarge="isLarge"
