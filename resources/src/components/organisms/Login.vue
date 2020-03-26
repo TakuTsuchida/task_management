@@ -7,6 +7,7 @@
     <MoleculesLoginUserTextArea @organisumValue="userIdData"/>
     <MoleculesLoginPasswordTextArea @organisumValue="passwordData"/>
     <MoleculesLoginButton :clickFunc="login"/>
+    <MoleculesSignUpButton :clickFunc="signup"/>
   </v-card>
 </template>
 <script>
@@ -16,12 +17,15 @@ import { mapActions, mapGetters } from 'vuex';
 import MoleculesLoginUserTextArea from '@/components/molecules/login/UserTextArea.vue';
 import MoleculesLoginPasswordTextArea from '@/components/molecules/login/PasswordTextArea.vue';
 import MoleculesLoginButton from '@/components/molecules/login/LoginButton.vue';
+import MoleculesSignUpButton from '@/components/molecules/login/SignUpButton.vue';
+
 export default {
   name: 'Login',
   components: {
     MoleculesLoginUserTextArea,
     MoleculesLoginPasswordTextArea,
     MoleculesLoginButton,
+    MoleculesSignUpButton,
   },
   data: function() {
     return {

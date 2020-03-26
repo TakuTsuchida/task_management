@@ -20,8 +20,8 @@ export default {
   },
   data: function() {
     return {
-      label: 'LOGIN',
-      color: '#AED581',
+      label: 'SIGN UP',
+      color: '#FFECB3',
       isSmall: false,
       isLarge: true,
       isBlock: true,
