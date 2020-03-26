@@ -1,20 +1,18 @@
 <template>
   <v-row justify="center">
       <v-col class="text-center" cols="8" md="6">
-          <Button
-            :label="label" :color="color"
-            :isSmall="isSmall" :isLarge="isLarge"
-            :isDisabled="isRequired" :clickFunc="clickFunc"/>
+          <v-btn
+            :color="color"
+            :small="isSmall" :large="isLarge"
+            :isDisabled="isRequired" @click="clickFunc">
+            {{label}}
+          </v-btn>
       </v-col>
   </v-row>
 </template>
 <script>
-import Button from '@/components/atoms/Button.vue';
 export default {
   name: 'LoginButtonArea',
-  components: {
-    Button,
-  },
   props: {
     clickFunc: {
       type: Function,
