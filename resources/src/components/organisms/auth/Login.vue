@@ -14,10 +14,10 @@
 import router from '@/router';
 import { mapActions, mapGetters } from 'vuex';
 
-import MoleculesLoginUserTextArea from '@/components/molecules/login/UserTextArea.vue';
-import MoleculesLoginPasswordTextArea from '@/components/molecules/login/PasswordTextArea.vue';
-import MoleculesLoginButton from '@/components/molecules/login/LoginButton.vue';
-import MoleculesSignUpButton from '@/components/molecules/login/SignUpButton.vue';
+import MoleculesLoginUserTextArea from '@/components/molecules/auth/share/UserTextArea.vue';
+import MoleculesLoginPasswordTextArea from '@/components/molecules/auth/share/PasswordTextArea.vue';
+import MoleculesLoginButton from '@/components/molecules/auth/login/LoginButton.vue';
+import MoleculesSignUpButton from '@/components/molecules/auth/login/SignUpButton.vue';
 
 export default {
   name: 'Login',
