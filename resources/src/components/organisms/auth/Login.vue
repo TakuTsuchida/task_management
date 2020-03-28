@@ -6,13 +6,13 @@
     </v-img>
     <MoleculesLoginUserTextArea @organisumValue="userIdData"/>
     <MoleculesLoginPasswordTextArea @organisumValue="passwordData"/>
-    <MoleculesLoginButton :clickFunc="login"/>
+    <MoleculesLoginButton :clickFunc="submitLogin"/>
     <MoleculesSignUpButton :clickFunc="signup"/>
   </v-card>
 </template>
 <script>
 import router from '@/router';
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions} from 'vuex';
 
 import MoleculesLoginUserTextArea from '@/components/molecules/auth/share/UserTextArea.vue';
 import MoleculesLoginPasswordTextArea from '@/components/molecules/auth/share/PasswordTextArea.vue';
@@ -35,12 +35,10 @@ export default {
   },
   methods: {
     ...mapActions({
-      testLogin: 'login/testLogin'}),
-    ...mapGetters({
-      token: 'login/token'}),
-    login() {
+      login: 'auth/login'}),
+    submitLogin() {
       const credential = {userId: this.userId, password: this.password};
-      this.testLogin(credential);
+      this.login(credential);
     },
     signup() {
       router.push('/signup');

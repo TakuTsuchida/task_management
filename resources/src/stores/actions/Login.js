@@ -2,7 +2,7 @@ import axios from 'axios';
 import router from '@/router'
 
 export default {
-  testLogin({commit}, credential) {
+  login({commit}, credential) {
     // TODO http://localhost/api は共通化するべきである。
     axios.post('http://localhost/api/login', credential)
       .then(res => {
