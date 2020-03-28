@@ -1,6 +1,6 @@
-import getters from '@/stores/getters/Login'
-import mutations from '@/stores/mutations/Login.js'
-import actions from '@/stores/actions/Login'
+import getters from '@/stores/getters/Auth'
+import mutations from '@/stores/mutations/Auth'
+import actions from '@/stores/actions/Auth'
 
 export default {
     namespaced: true,
