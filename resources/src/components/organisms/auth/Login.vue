@@ -4,7 +4,7 @@
       src="https://home.ikebukuro.kokosil.net/wp-content/uploads/2019/11/image13052x175_sub3.png"
       height="300px">
     </v-img>
-    <MoleculesLoginUserTextArea @organisumValue="userIdData"/>
+    <MoleculesLoginUserTextArea @organisumValue="userNameData"/>
     <MoleculesLoginPasswordTextArea @organisumValue="passwordData"/>
     <MoleculesLoginButton :clickFunc="submitLogin"/>
     <MoleculesSignUpButton :clickFunc="signup"/>
@@ -29,7 +29,7 @@ export default {
   },
   data: function() {
     return {
-      userId: '',
+      userName: '',
       password: '',
     };
   },
@@ -37,7 +37,7 @@ export default {
     ...mapActions({
       login: 'auth/login'}),
     submitLogin() {
-      const credential = {userId: this.userId, password: this.password};
+      const credential = {userName: this.userName, password: this.password};
       this.login(credential);
     },
     signup() {
@@ -46,8 +46,8 @@ export default {
     passwordData(value) {
       this.password = value;
     },
-    userIdData(value) {
-      this.userId = value;
+    userNameData(value) {
+      this.userName = value;
     },
   },
 }

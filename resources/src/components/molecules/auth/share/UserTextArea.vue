@@ -11,7 +11,7 @@ export default {
   name: 'UserTextArea',
   data: function() {
     return {
-      label: 'User Id',
+      label: 'User Name',
       maxLength: 70,
       isRequired: true,
       value: '',

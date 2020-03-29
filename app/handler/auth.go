@@ -25,7 +25,7 @@ var Config = middleware.JWTConfig{
 }
 
 // Signup function of Signup
-func Signup(c echo.Context) error {
+func SignUp(c echo.Context) error {
 	user := new(model.User)
 	if err := c.Bind(user); err != nil {
 		return err

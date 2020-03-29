@@ -4,9 +4,9 @@
       src="https://home.ikebukuro.kokosil.net/wp-content/uploads/2019/11/image13052x175_sub3.png"
       height="300px">
     </v-img>
-    <MoleculesLoginUserTextArea @organisumValue="userIdData"/>
+    <MoleculesLoginUserTextArea @organisumValue="userNameData"/>
     <MoleculesLoginPasswordTextArea @organisumValue="passwordData"/>
-    <MoleculesSignUpButton :clickFunc="signup"/>
+    <MoleculesSignUpButton :clickFunc="submitSignUp"/>
   </v-card>
 </template>
 <script>
@@ -25,24 +25,22 @@ export default {
   },
   data: function() {
     return {
-      userId: '',
+      userName: '',
       password: '',
     };
   },
   methods: {
     ...mapActions({
-      // TODO change signup
-      login: 'auth/login'}),
-    // TODO change signup
-    submitLogin() {
-      const credential = {userId: this.userId, password: this.password};
-      this.login(credential);
+      signUp: 'auth/signUp'}),
+    submitSignUp() {
+      const credential = {userName: this.userName, password: this.password};
+      this.signUp(credential);
     },
     passwordData(value) {
       this.password = value;
     },
-    userIdData(value) {
-      this.userId = value;
+    userNameData(value) {
+      this.userName = value;
     },
   },
 }
