@@ -12,7 +12,7 @@
 </template>
 <script>
 export default {
-  name: 'LoginButtonArea',
+  name: 'SignUpButtonArea',
   props: {
     clickFunc: {
       type: Function,

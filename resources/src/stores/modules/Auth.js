@@ -8,7 +8,7 @@ export default {
     mutations,
     actions,
     state: {
-      userId: '',
+      userName: '',
       password: '',
       token: '',
     },
