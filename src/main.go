@@ -16,7 +16,7 @@ func newRouter() *echo.Echo {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
-	auth := e.Group("/auth")
+	// auth := e.Group("/auth")
 	//auth.POST("/signup", authHandler.Signup)
 	//auth.POST("/signin", authHandler.Signin)
 	return e
