@@ -8,5 +8,5 @@ type (
 )
 
 func (s Signup) ValidateSignup() bool {
-	return s.Email != ""&s.Password != ""
+	return s.Email != "" && s.Password != ""
 }

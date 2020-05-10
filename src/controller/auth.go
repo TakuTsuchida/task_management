@@ -11,5 +11,5 @@ func Signup(c echo.Context) error {
 	if err != nil {
 		return err
 	}
-
+	return nil
 }
