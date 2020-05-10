@@ -7,22 +7,19 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - .:/app
-    working_dir: /app
+      - ./resources:/resources
     tty: true
-    # command: sh -c "cd resources && yarn install && yarn serve"
+    command: sh -c "yarn install && yarn serve"
 
   go:
-    build:
+    build: 
       context: ./docker/go
     container_name: myapp-go
     ports:
       - 8082:8082
     volumes:
-      - .:/go/src
-    working_dir: /go/src/app
+      - ./src:/go/src
     tty: true
-    command: fresh
 
   db:
     image: mysql:5.7
